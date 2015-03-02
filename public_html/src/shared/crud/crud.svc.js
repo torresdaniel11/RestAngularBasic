@@ -20,6 +20,16 @@
 					this.editMode = true;
 					$scope.currentRecord = {};
 				};
+                                
+                                this.promedio = function (record) {
+                                    var min = record.minAge;
+                                    var max = record.maxAge;
+                                    max = (max+min)/2;
+                                    console.log(max);
+					alert("El promedio de edades permitidas es: " + max);
+				};
+                                
+                                
 				this.saveRecord = function () {
 					var self = this;
 					if ($scope.currentRecord.id) {
@@ -33,7 +43,7 @@
 					}
 				};
 				this.deleteRecord = function (record) {
-					var self = this;
+				 	var self = this;
 					record.remove().then(function () {
 						self.fetchRecords();
 					});
